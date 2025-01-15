@@ -6,10 +6,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api/users', (req, res) => {
-  res.send('Hello World!')
-})  
-
 app.get('/api/users/:id', (req, res) => {
   res.send(`Hello World! User ID: ${req.params.id}`)
 })
@@ -19,6 +15,10 @@ app.get('/api/users/:id/posts', (req, res) => {
 })  
 app.get('/api/users/:id/posts/:postId', (req, res) => {
   res.send(`Hello World! User ID: ${req.params.id}, Post ID: ${req.params.postId}`)
+})
+
+app.post('/api/users', (req, res) => {
+  res.send('User created!')
 })
 
 app.listen(port, () => {
