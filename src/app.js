@@ -18,6 +18,7 @@ app.get('/api/users/:id/posts', (req, res) => {
   res.send(`Hello World! User ID: ${req.params.id}, Posts`)
 })  
 app.get('/api/users/:id/posts/:postId', (req, res) => {
+  console.log('test post');
   res.send(`Hello World! User ID: ${req.params.id}, Post ID: ${req.params.postId}`)
 })
 
