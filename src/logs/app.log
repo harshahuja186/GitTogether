@@ -1,0 +1,32 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"1.187\"}","timestamp":"2025-01-19T15:40:49.997Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"0.912\"}","timestamp":"2025-01-19T15:42:26.753Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"96.715\"}","timestamp":"2025-01-19T15:42:34.454Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users/all\",\"status\":\"200\",\"responseTime\":\"51.816\"}","timestamp":"2025-01-19T15:43:33.420Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"10.300\"}","timestamp":"2025-01-19T15:46:28.960Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"1.223\"}","timestamp":"2025-01-19T15:46:52.110Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"6.567\"}","timestamp":"2025-01-19T15:47:20.102Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"92.087\"}","timestamp":"2025-01-19T15:48:15.533Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"125.692\"}","timestamp":"2025-01-19T16:02:32.596Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"87.901\"}","timestamp":"2025-01-19T16:02:50.446Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"1.615\"}","timestamp":"2025-01-19T16:05:20.355Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"9.657\"}","timestamp":"2025-01-19T16:06:05.469Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"46.879\"}","timestamp":"2025-01-19T16:06:13.306Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Invalid gender","timestamp":"2025-01-19T16:21:01.923Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"67.094\"}","timestamp":"2025-01-19T16:21:01.934Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"89.463\"}","timestamp":"2025-01-19T16:22:01.041Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Validator failed for path `gender` with value `37`","timestamp":"2025-01-19T16:22:35.945Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"405.738\"}","timestamp":"2025-01-19T16:22:35.947Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Validator failed for path `gender` with value `37`","timestamp":"2025-01-19T16:23:20.261Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"54.981\"}","timestamp":"2025-01-19T16:23:20.264Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Validator failed for path `gender` with value `37`","timestamp":"2025-01-19T16:32:03.146Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"70.705\"}","timestamp":"2025-01-19T16:32:03.151Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Validator failed for path `gender` with value `37`","timestamp":"2025-01-19T16:32:11.666Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"33.098\"}","timestamp":"2025-01-19T16:32:11.667Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"User validation failed: gender: Validator failed for path `gender` with value `37`","timestamp":"2025-01-19T16:32:13.726Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"400\",\"responseTime\":\"46.026\"}","timestamp":"2025-01-19T16:32:13.727Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"120.590\"}","timestamp":"2025-01-19T16:43:03.667Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"521.738\"}","timestamp":"2025-01-19T16:43:46.300Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"102.704\"}","timestamp":"2025-01-19T16:44:43.225Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"111.695\"}","timestamp":"2025-01-19T16:49:12.741Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"98.697\"}","timestamp":"2025-01-19T16:51:01.515Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users/all\",\"status\":\"200\",\"responseTime\":\"42.380\"}","timestamp":"2025-01-19T16:51:33.227Z"}

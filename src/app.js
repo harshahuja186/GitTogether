@@ -1,26 +1,22 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const connectDB = require("./config/database");
+const morganMiddleware = require("./middleware/morgan.js");
+require("dotenv").config();
+const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(morganMiddleware);
+app.use(express.json()); // Middleware to parse JSON payloads
 
-app.get('/api/users/:id', (req, res) => {
-  res.send(`Hello World! User ID: ${req.params.id}`)
-})
+//routes
+const userRoutes = require("./routes/user");
+app.use("/api/users", userRoutes);
 
-app.get('/api/users/:id/posts', (req, res) => {
-  res.send(`Hello World! User ID: ${req.params.id}, Posts`)
-})  
-app.get('/api/users/:id/posts/:postId', (req, res) => {
-  res.send(`Hello World! User ID: ${req.params.id}, Post ID: ${req.params.postId}`)
-})
-
-app.post('/api/users', (req, res) => {
-  res.send('User created!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+connectDB()
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("Server running on port 3000");
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
