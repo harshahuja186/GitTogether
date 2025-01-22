@@ -1,6 +1,7 @@
 const logger = require("../config/logger");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const userController = {
   signup: async (req, res) => {
@@ -50,6 +51,26 @@ const userController = {
         throw new Error("Invalid Creadentials");
       }
 
+      //create jwt token
+      const payload = {
+        id: user._id,
+        email: user.email,
+      };
+      const JWT_SECRET = process.env.JWT_SECRET;
+      const token = await jwt.sign(payload, JWT_SECRET, {
+        expiresIn: "1d",
+      });
+
+      //add the token to the cookie and send the response back to user
+      res.cookie(
+        "token",
+        token,
+        {
+          httpOnly: true,
+        },
+        { expires: new Date(Date.now() + 24 * 60 * 60 * 1000) }
+      );
+
       res.status(200).json({
         status: "success",
         data: user,
@@ -79,6 +100,31 @@ const userController = {
     try {
       const { id } = req.body;
       const result = await User.findByIdAndDelete(id);
+
+      if (!result) {
+        return res.status(404).json({
+          status: "failed",
+          message: "User not found",
+        });
+      }
+
+      res.status(200).json({
+        status: "success",
+        data: result,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: "failed",
+        message: err,
+      });
+    }
+  },
+  profile: async (req, res) => {
+    try {
+      const { user } = req.body;
+
+      const id = user.id;
+      const result = await User.findById(id);
 
       if (!result) {
         return res.status(404).json({

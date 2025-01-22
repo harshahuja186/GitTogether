@@ -5,15 +5,19 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const { signupSchema, loginSchema } = require("../schemas/userSchema");
 const validateRequest = require("../middleware/validateRequest");
+const authMiddleware = require("../middleware/auth");
 
 router.post("/signup", validateRequest(signupSchema), userController.signup);
 router.post("/login", validateRequest(loginSchema), userController.login);
-router.post("/logout", userController.logout);
+router.post("/logout", authMiddleware, userController.logout);
 
 //delete user
-router.delete("/delete", userController.deleteUser);
+router.delete("/delete", authMiddleware, userController.deleteUser);
 
-router.patch("/update/:userId", userController.updateUser);
+//get user profile data
+router.get("/profile", authMiddleware, userController.profile);
+
+router.patch("/update/:userId", authMiddleware, userController.updateUser);
 
 //get all user from db
 router.get("/all", userController.getAllUsers);
