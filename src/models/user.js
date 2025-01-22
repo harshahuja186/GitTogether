@@ -43,11 +43,12 @@ const userSchema = new Schema(
     },
     skills: {
       type: [String],
+      validate(value) {
+        if (value.length > 10) {
+          return false;
+        }
+      },
     },
-    //   createdAt: {
-    //     type: Date,
-    //     default: Date.now,
-    //   },
   },
   {
     timestamps: true,

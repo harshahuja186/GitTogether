@@ -1,30 +1,24 @@
 const logger = require("../config/logger");
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
 
 const userController = {
   signup: async (req, res) => {
     try {
       const { firstName, lastName, email, password, ...others } = req.body;
-      if (!firstName || !lastName || !email || !password) {
-        return res.status(400).json({
-          status: "failed",
-          message: "Required fields are missing",
-        });
-      }
 
       const existingUser = await User.findOne({ email: email });
       if (existingUser) {
-        return res.status(400).json({
-          status: "failed",
-          error: "User already exists",
-        });
+        throw new Error("User already exists");
       }
+
+      const passwordHash = await bcrypt.hash(password, 10);
 
       const user = new User({
         firstName,
         lastName,
         email,
-        password,
+        password: passwordHash,
         ...others,
       });
 
@@ -45,20 +39,15 @@ const userController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-
-      if (!email || !password) {
-        return res.status(400).json({
-          status: "failed",
-          message: "Required fields are missing",
-        });
+      const user = await User.findOne({ email: email });
+      if (!user) {
+        throw new Error("Invalid Creadentials");
       }
 
-      const user = await User.findOne({ email: email });
-      if (user.password !== password) {
-        return res.status(401).json({
-          status: "failed",
-          message: "Wrong password",
-        });
+      const passwordMatch = await bcrypt.compare(password, user?.password);
+
+      if (!passwordMatch) {
+        throw new Error("Invalid Creadentials");
       }
 
       res.status(200).json({
@@ -66,9 +55,10 @@ const userController = {
         data: user,
       });
     } catch (error) {
+      logger.error(error.message);
       res.status(400).json({
         status: "failed",
-        message: error,
+        message: error.message,
       });
     }
   },
@@ -111,20 +101,36 @@ const userController = {
 
   updateUser: async (req, res) => {
     try {
-      const { id, firstName, lastName, email, age, gender, password } =
-        req.body;
-      const result = await User.findByIdAndUpdate(
-        id,
-        {
-          firstName,
-          lastName,
-          email,
-          age,
-          gender,
-          password,
-        },
-        { new: true, upsert: true }
+      const data = req.body;
+      const userId = req.params.userId;
+
+      const ALLOWED_UPDATE_FIELDS = [
+        "firstName",
+        "lastName",
+        "age",
+        "gender",
+        "password",
+        "photoUrl",
+        "about",
+        "skills",
+      ];
+
+      const isUpdateAlowed = Object.keys(data).every((key) =>
+        ALLOWED_UPDATE_FIELDS.includes(key)
       );
+
+      if (!isUpdateAlowed) {
+        return res.status(400).json({
+          status: "failed",
+          message: "Invalid update fields",
+        });
+      }
+
+      const result = await User.findByIdAndUpdate(userId, data, {
+        new: true,
+        upsert: true,
+        revalidate: true,
+      });
 
       if (!result) {
         return res.status(404).json({
@@ -144,7 +150,6 @@ const userController = {
       });
     }
   },
-
   getAllUsers: async (req, res) => {
     try {
       const users = await User.find({});
