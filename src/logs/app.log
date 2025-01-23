@@ -148,3 +148,12 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users/profile\",\"status\":\"200\",\"responseTime\":\"49.429\"}","timestamp":"2025-01-22T17:16:22.394Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users/profile\",\"status\":\"200\",\"responseTime\":\"45.917\"}","timestamp":"2025-01-22T17:16:41.417Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users/profile\",\"status\":\"200\",\"responseTime\":\"46.742\"}","timestamp":"2025-01-22T17:17:35.111Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/login\",\"status\":\"200\",\"responseTime\":\"144.207\"}","timestamp":"2025-01-22T18:38:43.166Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/signup\",\"status\":\"201\",\"responseTime\":\"188.486\"}","timestamp":"2025-01-22T18:39:49.197Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"user.comparePassword is not a function","timestamp":"2025-01-22T18:41:31.794Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/login\",\"status\":\"400\",\"responseTime\":\"84.324\"}","timestamp":"2025-01-22T18:41:31.800Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/login\",\"status\":\"200\",\"responseTime\":\"136.570\"}","timestamp":"2025-01-22T18:41:39.287Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-01-22T19:44:27.113Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/login\",\"status\":\"400\",\"responseTime\":\"10035.868\"}","timestamp":"2025-01-22T19:44:27.136Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"Operation `users.findOne()` buffering timed out after 10000ms","timestamp":"2025-01-22T19:44:46.351Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/users/login\",\"status\":\"400\",\"responseTime\":\"10013.502\"}","timestamp":"2025-01-22T19:44:46.359Z"}

@@ -1,7 +1,5 @@
 const logger = require("../config/logger");
-const User = require("../models/user");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const User = require("../models/user.model.js");
 
 const userController = {
   signup: async (req, res) => {
@@ -13,13 +11,11 @@ const userController = {
         throw new Error("User already exists");
       }
 
-      const passwordHash = await bcrypt.hash(password, 10);
-
       const user = new User({
         firstName,
         lastName,
         email,
-        password: passwordHash,
+        password,
         ...others,
       });
 
@@ -45,21 +41,13 @@ const userController = {
         throw new Error("Invalid Creadentials");
       }
 
-      const passwordMatch = await bcrypt.compare(password, user?.password);
+      const passwordMatch = await user.comparePassword(password);
 
       if (!passwordMatch) {
         throw new Error("Invalid Creadentials");
       }
 
-      //create jwt token
-      const payload = {
-        id: user._id,
-        email: user.email,
-      };
-      const JWT_SECRET = process.env.JWT_SECRET;
-      const token = await jwt.sign(payload, JWT_SECRET, {
-        expiresIn: "1d",
-      });
+      const token = await user.getJWTToken();
 
       //add the token to the cookie and send the response back to user
       res.cookie(
@@ -84,16 +72,7 @@ const userController = {
     }
   },
   logout: (req, res) => {
-    const userObj = {
-      firstName: "Harsh",
-      lastname: "Ahuja",
-      email: "F4t9o@example.com",
-      age: 22,
-      gender: "male",
-      password: "123456",
-      status: "logged out",
-    };
-    res.send(userObj);
+    // res.cookie("token", null, { expiresIn: new Date(Date.now()) }).status(204);
   },
 
   deleteUser: async (req, res) => {
