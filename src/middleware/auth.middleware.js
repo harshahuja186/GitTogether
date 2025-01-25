@@ -23,7 +23,7 @@ const authMiddleware = (req, res, next) => {
       });
     }
 
-    req.body.user = decodedToken;
+    req.user = decodedToken;
     next();
   } catch (err) {
     logger.error(err.message);

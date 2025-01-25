@@ -36,6 +36,7 @@ const userController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
+
       const user = await User.findOne({ email: email });
       if (!user) {
         throw new Error("Invalid Creadentials");
@@ -72,7 +73,11 @@ const userController = {
     }
   },
   logout: (req, res) => {
-    // res.cookie("token", null, { expiresIn: new Date(Date.now()) }).status(204);
+    res.cookie("token", null, {
+      httpOnly: true,
+      expires: new Date(Date.now()),
+    });
+    res.status(204).send();
   },
 
   deleteUser: async (req, res) => {
@@ -100,7 +105,7 @@ const userController = {
   },
   profile: async (req, res) => {
     try {
-      const { user } = req.body;
+      const user = req.user;
 
       const id = user.id;
       const result = await User.findById(id);

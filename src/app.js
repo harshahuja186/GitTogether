@@ -10,10 +10,13 @@ app.use(express.json()); // Middleware to parse JSON payloads
 app.use(cookieParser());
 
 //routes
-const userRoutes = require("./routes/auth.routes.js");
+const authRoutes = require("./routes/auth.routes.js");
 const profileRoutes = require("./routes/profile.route.js");
-app.use("/", userRoutes);
+const requestRoutes = require("./routes/request.route.js");
+
+app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
+app.use("/request", requestRoutes);
 
 connectDB()
   .then(() => {
