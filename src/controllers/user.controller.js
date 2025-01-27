@@ -66,6 +66,10 @@ const userController = {
     try {
       const loggedInUser = req.user;
 
+      const page = parseInt(req.query.page) || 1;
+      let limit = parseInt(req.query.limit) || 10;
+      limit = limit > 50 ? 50 : limit;
+
       // user should not see all the user cards except
       //0: his own card
       //1: his connections
@@ -87,7 +91,10 @@ const userController = {
       });
 
       // const users = await User.find({ _id: { $nin: Array.from(hideUsers) } });
-      const users = await User.find({ _id: { $nin: [...hideUsers] } });
+      const users = await User.find({ _id: { $nin: [...hideUsers] } })
+        .select(AllConnectionPopulatedList)
+        .skip((page - 1) * limit)
+        .limit(limit);
 
       return res.status(200).json({
         status: "success",
