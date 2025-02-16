@@ -32,10 +32,10 @@ const profileRoutes = require("./routes/profile.route.js");
 const requestRoutes = require("./routes/request.route.js");
 const userRouter = require("./routes/user.router.js");
 
-app.use("/auth", authRoutes);
-app.use("/profile", profileRoutes);
-app.use("/request", requestRoutes);
-app.use("/user", userRouter);
+app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
+app.use("/api/request", requestRoutes);
+app.use("/api/user", userRouter);
 
 connectDB()
   .then(() => {
