@@ -18,9 +18,9 @@ const logger = createLogger({
     new transports.Console({
       format: consoleLogFormat,
     }),
-    new transports.File({
-      filename: path.join(__dirname, "../logs/app.log"),
-    }),
+    // new transports.File({
+    //   filename: path.join(__dirname, "../logs/app.log"),
+    // }),
   ],
 });
 
