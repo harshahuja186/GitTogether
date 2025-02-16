@@ -41,6 +41,10 @@ app.use("/api/health-check", (req, res) => {
   res.send("ok, it is working");
 });
 
+app.use("/health-check", (req, res) => {
+  res.send("ok, it is working");
+});
+
 connectDB()
   .then(() => {
     app.listen(3001, () => {
