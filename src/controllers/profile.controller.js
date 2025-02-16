@@ -61,6 +61,8 @@ const profileController = {
         runValidators: true,
       });
 
+      result.password = undefined;
+
       if (!result) {
         return res.status(404).json({
           status: "failed",
