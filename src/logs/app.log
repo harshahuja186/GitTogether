@@ -432,3 +432,5 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/profile/view\",\"status\":\"304\",\"responseTime\":\"406.294\"}","timestamp":"2025-02-16T08:00:58.267Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/feed\",\"status\":\"404\",\"responseTime\":\"5.665\"}","timestamp":"2025-02-16T09:43:51.502Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/profile/view\",\"status\":\"304\",\"responseTime\":\"295.918\"}","timestamp":"2025-02-16T09:43:51.805Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/feed\",\"status\":\"404\",\"responseTime\":\"11.337\"}","timestamp":"2025-02-16T11:51:57.181Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/profile/view\",\"status\":\"404\",\"responseTime\":\"0.452\"}","timestamp":"2025-02-16T11:51:57.189Z"}

@@ -37,6 +37,10 @@ app.use("/api/profile", profileRoutes);
 app.use("/api/request", requestRoutes);
 app.use("/api/user", userRouter);
 
+app.use("/api/health-check", (req, res) => {
+  res.send("ok, it is working");
+});
+
 connectDB()
   .then(() => {
     app.listen(3001, () => {
